@@ -1,0 +1,20 @@
+FUNCTION isPalindrom(word : STRING) : BOOLEAN
+VAR
+    n: INTEGER;
+BEGIN
+    n := LENGTH(word);
+    IF (n < 2) THEN
+        RETURN true;
+    END_IF
+
+    word := LOWERCASE(word);
+    word := REPLACE(word, " ", "");
+
+    FOR i FROM 1 TO n DIV 2 DO
+        IF (word[i] <> word[n-i+1]) THEN
+            RETURN false;
+        END_IF
+    END_FOR
+
+    RETURN true;
+END
